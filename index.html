@@ -212,31 +212,297 @@
 
   <!-- Merch -->
   <section id="merch">
-    <div class="container">
-      <h2 class="section-title reveal">Merch</h2>
-      <p class="section-sub reveal">Hoodies, Shirts & Caps – hart im Look, bequem im Gym.</p>
+<!-- Merch -->
+<section id="merch">
+  <div class="container">
+    <h2 class="section-title reveal">Merch</h2>
+    <p class="section-sub reveal">Hoodies, Shirts & Caps – hart im Look, bequem im Gym.</p>
 
-      <div class="grid grid-3">
-        <article class="card reveal">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1520975933223-c78e04f1590d?q=80&w=1200&auto=format&fit=crop" alt="Hoodie Mockup" loading="lazy"></div>
-          <h3>Rage Hoodie</h3>
-          <p style="color:var(--muted)">Schwarz/Gold Print</p>
-          <div style="margin-top:8px"><a class="btn btn-ghost" href="#">Bald erhältlich</a></div>
-        </article>
-        <article class="card reveal">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="T-Shirt Mockup" loading="lazy"></div>
-          <h3>Rage T-Shirt</h3>
-          <p style="color:var(--muted)">Heavy Cotton</p>
-          <div style="margin-top:8px"><a class="btn btn-ghost" href="#">Bald erhältlich</a></div>
-        </article>
-        <article class="card reveal">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop" alt="Cap Mockup" loading="lazy"></div>
-          <h3>Rage Cap</h3>
-          <p style="color:var(--muted)">Adjustable</p>
-          <div style="margin-top:8px"><a class="btn btn-ghost" href="#">Bald erhältlich</a></div>
-        </article>
+    <div class="grid grid-3">
+      <!-- Hoodie (unverändert) -->
+      <article class="card reveal">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1520975933223-c78e04f1590d?q=80&w=1200&auto=format&fit=crop" alt="Hoodie Mockup" loading="lazy"></div>
+        <h3>Rage Hoodie</h3>
+        <p style="color:var(--muted)">Schwarz/Gold Print</p>
+        <div style="margin-top:8px"><a class="btn btn-ghost" href="#">Bald erhältlich</a></div>
+      </article>
+
+      <!-- T-SHIRT (hover: front/back, click -> Produktseite) -->
+      <a class="card reveal" href="shirt.html" style="text-decoration:none;color:inherit">
+        <div class="thumb" style="position:relative">
+          <!-- Rückseite = Standard -->
+          <img src="images/shirt-back.png" alt="Rage T-Shirt Back" loading="lazy">
+          <!-- Vorderseite = Hover -->
+          <img src="images/shirt-front.png" alt="Rage T-Shirt Front" loading="lazy"
+               style="position:absolute;inset:0;opacity:0;transition:opacity .35s">
+        </div>
+        <h3>Rage T-Shirt</h3>
+        <p style="color:var(--muted)">Heavy Cotton • Front/Back Print</p>
+        <div style="margin-top:8px"><span class="btn btn-primary">Zum Produkt</span></div>
+      </a>
+
+      <!-- Cap (unverändert) -->
+      <article class="card reveal">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop" alt="Cap Mockup" loading="lazy"></div>
+        <h3>Rage Cap</h3>
+        <p style="color:var(--muted)">Adjustable</p>
+        <div style="margin-top:8px"><a class="btn btn-ghost" href="#">Bald erhältlich</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Mini CSS für Hover-Swap (fügt sich in deinen Stil ein) -->
+<style>
+  #merch .thumb { overflow:hidden; }
+  #merch .thumb img + img { opacity:0 }
+  #merch a.card:hover .thumb img + img { opacity:1 }
+</style>
+2) Neue Seite shirt.html (vollständig, ready-to-paste)
+html
+Code kopieren
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rage T-Shirt – Bavarian Rage</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0b0c; --fg:#f2f2f2; --muted:#bdbdbd; --line:#1e1e20;
+  --rage:#C1121F; --gold:#D4AF37; --card:#131315; --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box} html,body{margin:0} body{background:var(--bg);color:var(--fg);font:16px/1.6 "Inter",system-ui}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.6);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.brand{display:flex;gap:10px;align-items:center}
+.brand .mark{height:36px;width:36px;border:2px solid var(--rage);border-radius:50%;display:grid;place-items:center}
+.brand .mark span{color:var(--gold);font-weight:900;font-size:.85rem}
+nav a{color:var(--muted);text-decoration:none;margin:0 10px;font-weight:600}
+nav a:hover{color:#fff}
+
+main{padding:40px 0}
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:1.2fr 1fr}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.media{padding:14px}
+.stage{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;height:min(58vh,720px);background:#0f0f10}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.stage img.front{opacity:0}
+.thumbs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
+.thumbs button{border:1px solid var(--line);background:#0f0f10;border-radius:10px;overflow:hidden;cursor:pointer}
+.thumbs img{width:100%;height:100px;object-fit:cover;display:block}
+
+.pane{padding:18px}
+h1{margin:0 0 6px 0;font-size:clamp(28px,4.8vw,40px);font-weight:900}
+.price{font-size:28px;font-weight:900;margin:6px 0 12px}
+.muted{color:var(--muted)}
+.opt-row{margin:14px 0}
+.options{display:flex;gap:8px;flex-wrap:wrap}
+.opt{padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#0f0f10;color:#ddd;font-size:.95rem;cursor:pointer}
+.opt.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset;color:#fff}
+.qty{display:flex;align-items:center;gap:8px}
+.qty input{width:72px;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:#0f0f10;color:#fff}
+
+.btn{display:inline-block;padding:12px 18px;border-radius:14px;text-decoration:none;font-weight:800;letter-spacing:.2px;transition:.25s;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--rage),#ff3a3a);border:1px solid #ff5656;color:#fff;box-shadow:0 6px 16px rgba(193,18,31,.35)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--gold);color:var(--gold);background:linear-gradient(180deg,rgba(212,175,55,.12),rgba(212,175,55,.04))}
+.btn-ghost:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+
+footer{padding:28px 0;text-align:center;color:var(--muted);border-top:1px solid var(--line);margin-top:40px}
+
+/* Cart Drawer (gleich wie Startseite-light) */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);display:none;z-index:70}
+.cart-overlay.active{display:block}
+.cart-drawer{position:absolute;right:0;top:0;height:100%;width:min(420px,100%);background:#0e0e10;border-left:1px solid var(--line);
+  box-shadow:-10px 0 40px rgba(0,0,0,.6);transform:translateX(14px);opacity:0;transition:.3s}
+.cart-overlay.active .cart-drawer{transform:none;opacity:1}
+.cart-head{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid var(--line)}
+.cart-items{max-height:60vh;overflow:auto}
+.cart-item{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.cart-item .thumb{width:64px;height:64px;border-radius:10px;margin:0;border:1px solid var(--line)}
+.cart-foot{padding:16px;border-top:1px solid var(--line)}
+.cart-foot .row{display:flex;justify-content:space-between;margin:6px 0}
+.cart-actions{display:flex;gap:8px;margin-top:10px}
+.fab{position:fixed;right:18px;bottom:18px;background:rgba(0,0,0,.75);border:1px solid var(--line);border-radius:16px;padding:10px 12px;display:flex;gap:8px;align-items:center}
+.fab .badge{background:var(--rage);border:1px solid #ff5656;color:#fff;border-radius:10px;padding:2px 8px;font-weight:800;font-size:.85rem}
+.fab .sum{color:var(--gold);font-weight:800}
+
+/* Responsive */
+@media (max-width: 980px){ .grid-2{grid-template-columns:1fr} .stage{height:54vh} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container head">
+    <div class="brand">
+      <div class="mark"><span>BR</span></div>
+      <strong><span style="color:var(--rage)">BAVARIAN</span> <span style="color:var(--gold)">RAGE</span></strong>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="trainingsplaene.html">Trainingspläne</a>
+      <a href="merch.html">Merch</a>
+      <a href="discord.html">Discord</a>
+      <a href="team.html">Team</a>
+      <a href="galerie.html">Galerie</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="grid grid-2">
+    <!-- Medien -->
+    <div class="card media">
+      <div class="stage" id="stage">
+        <img class="back"  src="images/shirt-back.png"  alt="Rage T-Shirt Back"  loading="eager">
+        <img class="front" src="images/shirt-front.png" alt="Rage T-Shirt Front" loading="lazy">
+      </div>
+      <div class="thumbs">
+        <button type="button" data-view="back"><img src="images/shirt-back.png"  alt="Back Thumb"></button>
+        <button type="button" data-view="front"><img src="images/shirt-front.png" alt="Front Thumb"></button>
       </div>
     </div>
+
+    <!-- Details -->
+    <div class="card pane">
+      <h1>Rage T-Shirt</h1>
+      <div class="price" id="price">29,00€</div>
+      <p class="muted">Heavy Cotton • Front/Back Print • Regular Fit</p>
+
+      <div class="opt-row">
+        <div class="muted" style="margin-bottom:6px">Größe</div>
+        <div class="options" id="sizeOpts">
+          <span class="opt">S</span><span class="opt">M</span><span class="opt active">L</span><span class="opt">XL</span><span class="opt">XXL</span>
+        </div>
+      </div>
+
+      <div class="opt-row">
+        <div class="muted" style="margin-bottom:6px">Menge</div>
+        <div class="qty"><input type="number" id="qty" min="1" value="1"></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="addCart">In den Warenkorb</button>
+        <button class="btn btn-ghost" id="buyNow">Jetzt kaufen</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Floating indicator -->
+<button class="fab" id="fab" type="button" title="Warenkorb öffnen">
+  🛒 <span class="badge" id="fabCount">0</span> <span class="sum" id="fabSum">0€</span>
+</button>
+
+<!-- Cart Drawer -->
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true">
+  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-head">
+      <strong id="cartTitle">Warenkorb</strong>
+      <button class="btn btn-ghost" id="cartClose">Schließen</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="row"><span class="muted">Zwischensumme</span><strong id="cartTotal">0€</strong></div>
+      <div class="cart-actions">
+        <button class="btn btn-primary" id="checkoutBtn">Zur Kasse</button>
+        <button class="btn btn-ghost" id="keepBtn">Weiter shoppen</button>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">© 2025 BAVARIAN RAGE – Strength. Rage. Glory.</div>
+</footer>
+
+<script>
+// Image switch
+const stage = document.getElementById('stage');
+document.querySelectorAll('.thumbs button').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const front = stage.querySelector('.front'), back = stage.querySelector('.back');
+    if (b.dataset.view === 'front'){ front.style.opacity=1; back.style.opacity=0; }
+    else { front.style.opacity=0; back.style.opacity=1; }
+  });
+});
+
+// Size select
+document.getElementById('sizeOpts').addEventListener('click', e=>{
+  if(!e.target.classList.contains('opt')) return;
+  document.querySelectorAll('#sizeOpts .opt').forEach(o=>o.classList.remove('active'));
+  e.target.classList.add('active');
+});
+
+// --- Cart (LocalStorage kompatibel mit deiner Startseite) ---
+const $ = (s,el=document)=>el.querySelector(s);
+let cart = JSON.parse(localStorage.getItem('br_cart')||'[]');
+const save = ()=>localStorage.setItem('br_cart', JSON.stringify(cart));
+const fmt  = n=>`${n.toFixed(2).replace('.',',')}€`;
+
+function renderCart(){
+  const itemsEl = $('#cartItems');
+  if(!cart.length){ itemsEl.innerHTML='<div class="muted" style="padding:16px">Dein Warenkorb ist leer.</div>'; }
+  else {
+    itemsEl.innerHTML = cart.map(i=>`
+      <div class="cart-item">
+        <div class="thumb"><img src="${i.thumb}" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="flex:1">
+          <div style="font-weight:700">${i.name}</div>
+          <div class="muted">${i.variant?'Größe '+i.variant+' • ':''}x${i.qty}</div>
+        </div>
+        <div style="text-align:right;font-weight:700">${fmt(i.price*i.qty)}</div>
+      </div>
+    `).join('');
+  }
+  const sum = cart.reduce((a,i)=>a+i.price*i.qty,0);
+  $('#cartTotal').textContent = fmt(sum);
+  $('#fabCount').textContent  = cart.reduce((a,i)=>a+i.qty,0);
+  $('#fabSum').textContent    = fmt(sum);
+}
+function openCart(){ $('#cartOverlay').classList.add('active'); }
+function closeCart(){ $('#cartOverlay').classList.remove('active'); }
+
+$('#cartClose').onclick = closeCart;
+$('#keepBtn').onclick   = closeCart;
+$('#fab').onclick       = openCart;
+$('#cartOverlay').addEventListener('click', e=>{ if(e.target.id==='cartOverlay') closeCart(); });
+
+function addToCart({id,name,price,thumb,variant,qty}){
+  const ex = cart.find(i=>i.id===id && i.variant===variant);
+  if(ex) ex.qty += qty; else cart.push({id,name,price,thumb,variant,qty});
+  save(); renderCart(); openCart();
+}
+
+document.getElementById('addCart').addEventListener('click', ()=>{
+  const size = document.querySelector('#sizeOpts .opt.active')?.textContent.trim()||'L';
+  const qty  = Math.max(1, parseInt(document.getElementById('qty').value||'1', 10));
+  addToCart({
+    id:'merch-shirt', name:'Rage T-Shirt',
+    price:29, thumb:'images/shirt-front.png',
+    variant:size, qty
+  });
+});
+
+document.getElementById('buyNow').addEventListener('click', ()=>{
+  // hier später Shopify-Checkout integrieren; bis dahin Quick-Checkout via Mail:
+  if(!cart.length) document.getElementById('addCart').click();
+  const lines = cart.map(i=>`• ${i.name}${i.variant?' ('+i.variant+')':''} x${i.qty} – ${fmt(i.price*i.qty)}`).join('%0A');
+  const sum = fmt(cart.reduce((a,i)=>a+i.price*i.qty,0));
+  location.href = `mailto:contact@bavarianrage.de?subject=Bestellung%20Rage%20T-Shirt&body=${lines}%0A%0ASumme:%20${sum}%0A%0AName/Adresse:`;
+});
+
+renderCart();
+</script>
+</body>
+</html>
   </section>
 
   <!-- Discord CTA -->
