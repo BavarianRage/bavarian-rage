@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shop – Bavarian Rage</title>
+<title>Trainingspläne – Bavarian Rage</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
@@ -41,12 +41,9 @@ nav a:hover{color:#fff}
 .badge{position:absolute;left:10px;top:10px;font-size:.75rem;background:rgba(0,0,0,.6);border:1px solid var(--line);padding:6px 8px;border-radius:10px}
 .body{padding:16px}
 .price{font-size:24px;font-weight:900;margin:6px 0 10px}
-.options{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
-.opt{padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:#0f0f10;color:#ddd;font-size:.9rem;cursor:pointer}
-.opt.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset;color:#fff}
 .actions{display:flex;gap:8px;margin-top:10px}
 
-/* Overlay */
+/* Overlay (nur Pläne) */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);display:none;z-index:50}
 .overlay.active{display:block}
 .sheet{position:absolute;inset:auto 0 0 0;max-height:86vh;background:linear-gradient(180deg,rgba(13,13,14,.98),rgba(9,9,10,.98));border-top:1px solid var(--line);border-radius:20px 20px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.6);transform:translateY(12px);opacity:0;transition:.35s}
@@ -58,7 +55,7 @@ nav a:hover{color:#fff}
   radial-gradient(600px 120px at 50% 0, rgba(212,175,55,.18), transparent 65%),
   radial-gradient(600px 140px at 50% 100%, rgba(193,18,31,.22), transparent 65%);pointer-events:none}
 
-/* Cart */
+/* Mini Cart */
 .cart{position:fixed;right:18px;bottom:18px;z-index:60;background:rgba(0,0,0,.7);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:12px 14px;display:flex;align-items:center;gap:10px}
 .cart .count{background:var(--rage);border:1px solid #ff5656;color:#fff;border-radius:10px;padding:2px 8px;font-weight:800;font-size:.85rem}
 .cart .sum{color:var(--gold);font-weight:800}
@@ -80,7 +77,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);border-top:1px solid 
     </div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="trainingsplaene.html">Trainingspläne</a>
+      <a href="trainingsplaene.html" style="color:#fff">Trainingspläne</a>
       <a href="merch.html">Merch</a>
       <a href="discord.html">Discord</a>
       <a href="team.html">Team</a>
@@ -91,23 +88,22 @@ footer{padding:28px 0;text-align:center;color:var(--muted);border-top:1px solid 
 
 <section class="hero">
   <div class="container">
-    <h1>SHOP <span style="color:var(--gold)">OVERLAY</span></h1>
-    <p>Trainingspläne & Merch – schneller Checkout, klare Auswahl, saubere Optik. Klick unten auf <b>Shop öffnen</b>.</p>
-    <button class="btn btn-primary" id="openShop">Shop öffnen</button>
+    <h1>TRAININGSPLÄNE <span style="color:var(--gold)">ONLY</span></h1>
+    <p>Klar strukturiert. Notion-ready. Technik → Volumen → Kraft → Peak. Klick auf <b>Pläne anzeigen</b> für den schnellen Overlay-Shop.</p>
+    <button class="btn btn-primary" id="openShop">Pläne anzeigen</button>
   </div>
 </section>
 
-<!-- Overlay -->
+<!-- Overlay: nur PLÄNE -->
 <div class="overlay" id="overlay">
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="shopTitle">
     <div class="bar"></div>
     <div class="container">
       <div class="head">
-        <div class="title" id="shopTitle">BAVARIAN RAGE • Store</div>
+        <div class="title" id="shopTitle">BAVARIAN RAGE • Trainingspläne</div>
         <button class="btn btn-ghost" id="closeShop">Schließen</button>
       </div>
 
-      <!-- PRODUCTS -->
       <div class="grid grid-3" id="products">
 
         <!-- PLAN 1 -->
@@ -161,60 +157,6 @@ footer{padding:28px 0;text-align:center;color:var(--muted);border-top:1px solid 
           </div>
         </article>
 
-        <!-- MERCH 1 -->
-        <article class="card" data-id="hoodie" data-name="Rage Hoodie" data-price="59">
-          <div class="thumb">
-            <img src="https://images.unsplash.com/photo-1520975933223-c78e04f1590d?q=80&w=1200&auto=format&fit=crop" alt="Rage Hoodie">
-            <span class="badge">Merch</span>
-          </div>
-          <div class="body">
-            <h3>Rage Hoodie</h3>
-            <div class="price">59€</div>
-            <div class="options" data-type="size">
-              <span class="opt">S</span><span class="opt">M</span><span class="opt active">L</span><span class="opt">XL</span>
-            </div>
-            <div class="actions">
-              <button class="btn btn-primary add">In den Cart</button>
-              <button class="btn btn-ghost quick">Details</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- MERCH 2 -->
-        <article class="card" data-id="shirt" data-name="Rage T-Shirt" data-price="29">
-          <div class="thumb">
-            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="Rage Shirt">
-            <span class="badge">Merch</span>
-          </div>
-          <div class="body">
-            <h3>Rage T-Shirt</h3>
-            <div class="price">29€</div>
-            <div class="options" data-type="size">
-              <span class="opt">S</span><span class="opt active">M</span><span class="opt">L</span><span class="opt">XL</span>
-            </div>
-            <div class="actions">
-              <button class="btn btn-primary add">In den Cart</button>
-              <button class="btn btn-ghost quick">Details</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- MERCH 3 -->
-        <article class="card" data-id="cap" data-name="Rage Cap" data-price="24">
-          <div class="thumb">
-            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop" alt="Rage Cap">
-            <span class="badge">Merch</span>
-          </div>
-          <div class="body">
-            <h3>Rage Cap</h3>
-            <div class="price">24€</div>
-            <div class="actions">
-              <button class="btn btn-primary add">In den Cart</button>
-              <button class="btn btn-ghost quick">Details</button>
-            </div>
-          </div>
-        </article>
-
       </div>
     </div>
     <div class="glow" aria-hidden="true"></div>
@@ -236,11 +178,13 @@ footer{padding:28px 0;text-align:center;color:var(--muted);border-top:1px solid 
 const $ = (s, el=document)=>el.querySelector(s);
 const $$ = (s, el=document)=>[...el.querySelectorAll(s)];
 
+// Overlay open/close
 const overlay = $('#overlay');
 $('#openShop').onclick = ()=> overlay.classList.add('active');
 $('#closeShop').onclick = ()=> overlay.classList.remove('active');
 overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.classList.remove('active'); });
 
+// Cart (shared via localStorage)
 const cart = JSON.parse(localStorage.getItem('br_cart')||'[]');
 const save = ()=>localStorage.setItem('br_cart', JSON.stringify(cart));
 const fmt = n => `${n.toFixed(2).replace('.',',')}€`;
@@ -253,36 +197,21 @@ function refreshCart(){
 refreshCart();
 
 function addToCart(item){
-  const exists = cart.find(i=>i.id===item.id && i.variant===item.variant);
+  const exists = cart.find(i=>i.id===item.id && (i.variant||'')===(item.variant||''));
   if(exists) exists.qty += item.qty; else cart.push(item);
   save(); refreshCart();
 }
 
+// Nur PLÄNE klicken
 $('#products')?.addEventListener('click', e=>{
   const card = e.target.closest('.card'); if(!card) return;
-  if(e.target.classList.contains('opt')){
-    $$('.opt', card).forEach(o=>o.classList.remove('active'));
-    e.target.classList.add('active'); return;
-  }
+
   if(e.target.classList.contains('add')){
-    const id = card.dataset.id, name = card.dataset.name, price = parseFloat(card.dataset.price);
-    const activeOpt = $('.opt.active', card); 
-    const variant = activeOpt ? activeOpt.textContent.trim() : '';
-    addToCart({id, name, price, variant, qty:1});
+    const id = card.dataset.id, name = card.dataset.name, price = parseFloat(card.dataset.price||'0');
+    // Pläne haben keine Varianten -> variant = ''
+    addToCart({id, name, price, variant:'', qty:1});
   }
   if(e.target.classList.contains('quick')){
-    alert(`${card.dataset.name}\n\nKurze Beschreibung folgt. Variant: ${$('.opt.active', card)?.textContent||'-'}`);
-  }
-});
-
-// Fake checkout: mail mit Korbinhalt
-$('#checkout').onclick = ()=>{
-  if(!cart.length) return alert('Dein Cart ist leer.');
-  const lines = cart.map(i=>`• ${i.name}${i.variant?' ('+i.variant+')':''}  x${i.qty}  –  ${fmt(i.price*i.qty)}`);
-  const sum = cart.reduce((a,i)=>a+i.price*i.qty,0);
-  const body = encodeURIComponent(lines.join('\n') + `\n\nSumme: ${fmt(sum)}\n\nName/Adresse:\n`);
-  location.href = `mailto:contact@bavarianrage.de?subject=Bestellung%20BAVARIAN%20RAGE&body=${body}`;
-};
-</script>
-</body>
-</html>
+    const text = {
+      'plan-basics': '8 Wochen • 3x/Woche • Technik-Fokus • PDF + Notion',
+      'plan-power':  '12 Wochen • 4x/Woche • Volumen → Kraft → Peak • Warm-ups inkl.',
