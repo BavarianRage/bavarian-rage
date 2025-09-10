@@ -73,26 +73,6 @@
 
     footer{padding:24px 0;text-align:center;color:var(--muted)}
 
-    .cart-fab{position:fixed;right:18px;bottom:18px;z-index:60;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);
-      border:1px solid var(--line);border-radius:16px;padding:10px 12px;display:flex;gap:8px;align-items:center}
-    .cart-fab .badge{background:var(--rage);border:1px solid #ff5656;color:#fff;border-radius:10px;padding:2px 8px;font-weight:800;font-size:.85rem}
-    .cart-fab .sum{color:var(--gold);font-weight:800}
-    .cart-fab.hidden{display:none}
-
-    .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);display:none;z-index:70}
-    .cart-overlay.active{display:block}
-    .cart-drawer{position:absolute;right:0;top:0;height:100%;width:min(420px,100%);background:#0e0e10;border-left:1px solid var(--line);
-      box-shadow:-10px 0 40px rgba(0,0,0,.6);transform:translateX(14px);opacity:0;transition:.3s}
-    .cart-overlay.active .cart-drawer{transform:none;opacity:1}
-    .cart-head{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid var(--line)}
-    .cart-items{max-height:60vh;overflow:auto}
-    .cart-item{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
-    .cart-item .t{width:64px;height:64px;border-radius:10px;margin:0;border:1px solid var(--line);overflow:hidden}
-    .cart-item img{width:100%;height:100%;object-fit:cover}
-    .cart-foot{padding:16px;border-top:1px solid var(--line)}
-    .cart-foot .row{display:flex;justify-content:space-between;margin:6px 0}
-    .cart-actions{display:flex;gap:8px;margin-top:10px}
-
     @media (max-width: 900px){
       .hero-wrap{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr}
@@ -126,7 +106,7 @@
       <p class="sub">Keine Ausreden. Nur Eisen. Deine Powerlifting-Base aus Bayern – Pläne, Community & klare Progression.</p>
       <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
         <a href="#trainingsplaene" class="btn btn-primary" aria-label="Zu den Trainingsplänen">Hol dir den Plan</a>
-        <a href="https://discord.gg/JYKW7jKmCk" class="btn btn-ghost" aria-label="Zum Discord">Join Discord</a>
+        <a href="discord.html" class="btn btn-ghost" aria-label="Zum Discord">Join Discord</a>
       </div>
     </div>
     <div class="hero-art reveal" aria-hidden="true">
@@ -143,7 +123,7 @@
     <p class="section-sub reveal">Klar strukturiert. Notion-ready. Technik → Volumen → Kraft → Peak.</p>
 
     <div class="grid grid-3">
-      <article class="card reveal plan-card" data-id="plan-basics" data-name="Rage Basics (8W)" data-price="29" data-thumb="images/maxbench.png">
+      <article class="card reveal">
         <h3>Rage Basics (8W)</h3>
         <div class="price">29€</div>
         <ul class="features">
@@ -151,10 +131,10 @@
           <li>Technik-Fokus</li>
           <li>PDF + Notion</li>
         </ul>
-        <p style="color:var(--muted)">Klick zum Hinzufügen</p>
+        <a href="trainingsplaene.html" class="btn btn-primary">Zum Plan</a>
       </article>
 
-      <article class="card reveal plan-card" data-id="plan-power" data-name="Rage Power (12W)" data-price="49" data-thumb="images/maxdeadlift.png">
+      <article class="card reveal">
         <h3>Rage Power (12W)</h3>
         <div class="price">49€</div>
         <ul class="features">
@@ -162,10 +142,10 @@
           <li>Volumen → Kraft → Peak</li>
           <li>Warm-ups inkl.</li>
         </ul>
-        <p style="color:var(--muted)">Klick zum Hinzufügen</p>
+        <a href="trainingsplaene.html" class="btn btn-primary">Zum Plan</a>
       </article>
 
-      <article class="card reveal plan-card" data-id="plan-elite" data-name="Rage Elite (Custom)" data-price="99" data-thumb="images/maxsquat.png">
+      <article class="card reveal">
         <h3>Rage Elite (Custom)</h3>
         <div class="price">ab 99€</div>
         <ul class="features">
@@ -173,19 +153,19 @@
           <li>Wöchentliche Check-ins</li>
           <li>VBT-Option</li>
         </ul>
-        <p style="color:var(--muted)">Klick zum Hinzufügen</p>
+        <a href="trainingsplaene.html" class="btn btn-primary">Zum Plan</a>
       </article>
     </div>
   </div>
 </section>
 
-<!-- Discord -->
+<!-- Discord CTA -->
 <section id="discord">
   <div class="container">
-    <div class="cta reveal">
+    <div class="cta reveal" style="background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center;box-shadow:var(--shadow)">
       <h2 class="section-title" style="margin:0 0 8px 0">Join our Discord</h2>
       <p class="section-sub" style="margin:0 0 16px 0">PR-Videos, Feedback, Technik-Talk – werde Teil der RAGE Community.</p>
-      <a class="btn btn-primary" href="#" aria-label="Discord beitreten">Discord beitreten</a>
+      <a class="btn btn-primary" href="discord.html" aria-label="Discord beitreten">Discord beitreten</a>
     </div>
   </div>
 </section>
@@ -243,32 +223,5 @@
   </div>
 </footer>
 
-<!-- Cart -->
-<button class="cart-fab hidden" id="cartFab" type="button" title="Warenkorb öffnen">
-  🛒 <span class="badge" id="cartCount">0</span> <span class="sum" id="cartSum">0€</span>
-</button>
-
-<div class="cart-overlay" id="cartOverlay" aria-hidden="true">
-  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-    <div class="cart-head">
-      <strong id="cartTitle">Warenkorb</strong>
-      <button class="btn btn-ghost" id="cartClose">Schließen</button>
-    </div>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="cart-foot">
-      <div class="row"><span style="color:var(--muted)">Zwischensumme</span><strong id="cartTotal">0€</strong></div>
-      <div class="cart-actions">
-        <button class="btn btn-primary" id="checkoutBtn">Zur Kasse</button>
-        <button class="btn btn-ghost" id="keepShopBtn">Weiter shoppen</button>
-      </div>
-    </div>
-  </aside>
-</div>
-
-<script>
-const $ = (s, el=document)=>el.querySelector(s);
-const $$ = (s, el=document)=>[...el.querySelectorAll(s)];
-const cartOverlay = $('#cartOverlay');
-const cartItemsEl  = $('#cartItems');
-const cartFab      = $('#cartFab');
-const
+</body>
+</html>
