@@ -120,11 +120,11 @@
         <strong><span style="color:var(--rage)">BAVARIAN</span> <span style="color:var(--gold)">RAGE</span></strong>
       </div>
       <nav aria-label="Hauptnavigation">
-        <a href="#trainingsplaene">Trainingspläne</a>
-        <a href="#merch">Merch</a>
-        <a href="#discord">Discord</a>
-        <a href="#team">Unser Team</a>
-        <a href="#galerie">Galerie</a>
+        <a href="trainingsplaene.html">Trainingspläne</a>
+        <a href="merch.html">Merch</a>
+        <a href="discord.html">Discord</a>
+        <a href="team.html">Unser Team</a>
+        <a href="galerie.html">Galerie</a>
       </nav>
     </div>
   </header>
@@ -136,18 +136,17 @@
         <h1>RAGE <span style="color:var(--gold)">UNLEASHED</span></h1>
         <p class="sub">Keine Ausreden. Nur Eisen. Deine Powerlifting-Base aus Bayern – Pläne, Community & klare Progression.</p>
         <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
-          <a href="#trainingsplaene" class="btn btn-primary" aria-label="Zu den Trainingsplänen">Hol dir den Plan</a>
-          <a href="#discord" class="btn btn-ghost" aria-label="Zum Discord">Join Discord</a>
+          <a href="trainingsplaene.html" class="btn btn-primary" aria-label="Zu den Trainingsplänen">Hol dir den Plan</a>
+          <a href="discord.html" class="btn btn-ghost" aria-label="Zum Discord">Join Discord</a>
         </div>
       </div>
 
       <div class="hero-art reveal" aria-hidden="true">
-        <!-- Lizenzfreie Stock-Fotos via Unsplash (Hotlink erlaubt) -->
         <img
           src="images/brbild.png"
           alt="Bavarian Rage Logo"
-    loading="eager" />
-  <div class="hero-badge">BAVARIAN RAGE</div>
+          loading="eager" />
+        <div class="hero-badge">BAVARIAN RAGE</div>
       </div>
     </div>
   </section>
@@ -236,7 +235,7 @@
       <div class="cta reveal">
         <h2 class="section-title" style="margin:0 0 8px 0">Join our Discord</h2>
         <p class="section-sub" style="margin:0 0 16px 0">PR-Videos, Feedback, Technik-Talk – werde Teil der RAGE Community.</p>
-        <a class="btn btn-primary" href="#" aria-label="Discord beitreten">Discord beitreten</a>
+        <a class="btn btn-primary" href="discord.html" aria-label="Discord beitreten">Discord beitreten</a>
       </div>
     </div>
   </section>
@@ -297,18 +296,3 @@
       © 2025 BAVARIAN RAGE – Strength. Rage. Glory.
     </div>
   </footer>
-
-  <!-- Mini JS: Reveal-on-scroll -->
-  <script>
-    (function() {
-      const els = document.querySelectorAll('.reveal');
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
-        })
-      }, {threshold:.18});
-      els.forEach(el=>io.observe(el));
-    })();
-  </script>
-</body>
-</html>
