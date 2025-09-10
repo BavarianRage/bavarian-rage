@@ -14,6 +14,17 @@
 }
 *{box-sizing:border-box} html,body{margin:0} 
 body{background:var(--bg);color:var(--fg);font:16px/1.6 "Inter",system-ui}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.7);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.brand{font-weight:900}
+.brand span:first-child{color:var(--rage)}
+.brand span:last-child{color:var(--gold)}
+nav a{color:var(--muted);text-decoration:none;margin:0 10px;font-weight:600;transition:.25s}
+nav a:hover{color:#fff}
+nav a.active{color:#fff;font-weight:800}
+
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
 h1,h2,h3{font-weight:900;margin:0}
 h2{margin-bottom:18px}
@@ -51,14 +62,14 @@ form input[type=checkbox]{margin-right:8px}
 <body>
 
 <header>
-  <div class="container" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0">
-    <div class="brand"><strong><span style="color:var(--rage)">BAVARIAN</span> <span style="color:var(--gold)">RAGE</span></strong></div>
+  <div class="container nav">
+    <div class="brand"><strong><span>BAVARIAN</span> <span>RAGE</span></strong></div>
     <nav>
-      <a href="index.html" style="margin-right:15px;color:var(--muted)">Home</a>
-      <a href="trainingsplaene.html" style="margin-right:15px;color:#fff">Trainingspläne</a>
-      <a href="discord.html" style="margin-right:15px;color:var(--muted)">Discord</a>
-      <a href="team.html" style="margin-right:15px;color:var(--muted)">Team</a>
-      <a href="galerie.html" style="color:var(--muted)">Galerie</a>
+      <a href="index.html">Home</a>
+      <a href="trainingsplaene.html" class="active">Trainingspläne</a>
+      <a href="discord.html">Discord</a>
+      <a href="team.html">Team</a>
+      <a href="galerie.html">Galerie</a>
     </nav>
   </div>
 </header>
